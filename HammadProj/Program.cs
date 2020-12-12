@@ -24,13 +24,13 @@ namespace HammadProj
 
         public static void ExceptionCatcher(string x)
         {
-            
+
             Console.Clear();
             Main_header();
             Console.WriteLine("\n\n\t\t " + x + "\n\n");
             Footer();
 
-            
+
         }
 
         public static void Front()
@@ -50,15 +50,15 @@ namespace HammadProj
         public static void Menu()
         {
             int i = 0;
-            while (i<3) 
-            { 
-            
-            
-            string pin_no = "";
-            Main_header();
-            Console.Write("\n\t\t   Enter Your Card No: ");
-            string card_no = Console.ReadLine();
-            Console.Write("\n\t\t   Enter Your Pin No: ");
+            while (i < 3)
+            {
+
+
+                string pin_no = "";
+                Main_header();
+                Console.Write("\n\t\t   Enter Your Card No: ");
+                string card_no = Console.ReadLine();
+                Console.Write("\n\t\t   Enter Your Pin No: ");
 
                 do
                 {
@@ -83,18 +83,14 @@ namespace HammadProj
                     }
                 } while (true);
                 pin = pin_no;
-            Footer();
-            StreamReader sr = new StreamReader("Users.txt", true);
-            string line;
-            while ((line = sr.ReadLine()) != null)
+                Footer();
+                StreamReader sr = new StreamReader("Users.txt", true);
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
 
-            {
-
-
-
-
-                string[] values = new string[5];
-                values = line.Split(',');
+                    string[] values = new string[5];
+                    values = line.Split(',');
                     if (card_no == values[1])
                     {
 
@@ -114,6 +110,7 @@ namespace HammadProj
                             Console.Write("\t\tPress <any> key to Try Again:");
                             Console.ReadKey();
                             Console.Clear();
+                            break;
 
                         }
                     }
@@ -124,14 +121,10 @@ namespace HammadProj
                     //    Console.ReadKey();
                     //    Console.Clear();
 
-
-
-
-
                     //}
 
-                
-            }
+
+                }
                 sr.Close();
 
 
@@ -139,21 +132,21 @@ namespace HammadProj
                 i++;
             }
             if (i == 3)
-            { 
-                Main_header(); 
-                Console.WriteLine("\t\tMachine Has Siezed Your Atm Card"); 
-                Footer(); 
+            {
+                Main_header();
+                Console.WriteLine("\t\tMachine Has Siezed Your Atm Card");
+                Footer();
             }
         }
-    
+
 
         public static void Main_header()
         {
             Console.Clear();
             DateTime d = DateTime.Now;
-            
-            
-            Console.WriteLine("\n\n\t\tDate:\t\t\t   " +d.ToString("dd/MM/yy") + "\n\t\t====================================");
+
+
+            Console.WriteLine("\n\n\t\tDate:\t\t\t   " + d.ToString("dd/MM/yy") + "\n\t\t====================================");
             Console.WriteLine("\t\t\t\t" + "E-ATM");
             Console.WriteLine("\t\t====================================\n\n");
         }
@@ -177,33 +170,35 @@ namespace HammadProj
                 }
             }
             sr1.Close();
-            
-            
-            
+
+
+
             do
             {
-                try { 
-                Console.Clear();
-                Main_header();
+                try
+                {
+                    Console.Clear();
+                    Main_header();
 
-                Console.WriteLine("\n\t\t" + "\t  Welcome: " + userlogedin + "\n\n\n");
-                Console.WriteLine("\t\t" + "1.Withdrawal.\t\t    2.Deposit\n");
-                Console.WriteLine("\t\t" + "3.Bal Inq\t4.Last 5 Transactions\n");
-                Console.Write("\t\t" + "5.Mini Statement\t 6.Change Pin\n\n\n");
-                Console.Write("\t\t\t       7.Log Out\n\n\n");
-                Footer();
+                    Console.WriteLine("\n\t\t" + "\t  Welcome: " + userlogedin + "\n\n\n");
+                    Console.WriteLine("\t\t" + "1.Withdrawal.\t\t    2.Deposit\n");
+                    Console.WriteLine("\t\t" + "3.Bal Inq\t4.Last 5 Transactions\n");
+                    Console.Write("\t\t" + "5.Mini Statement\t 6.Change Pin\n\n\n");
+                    Console.Write("\t\t\t       7.Log Out\n\n\n");
+                    Footer();
                     Console.Write("\t\t");
-                int opt = Convert.ToInt32(Console.ReadLine());
-                
-
-                Features f = new Features();
+                    int opt = Convert.ToInt32(Console.ReadLine());
 
 
-                if (opt >=1 && opt <= 7) {
+                    Features f = new Features();
+
+
+                    if (opt >= 1 && opt <= 7)
+                    {
                         switch (opt)
                         {
                             case 1:
-                               
+
 
                                 DateTime dateTime = DateTime.Now;
                                 string today = dateTime.ToString("MM/dd/yy");
@@ -219,7 +214,7 @@ namespace HammadProj
                                 {
                                     if (Convert.ToInt32(testval[0]) <= 10)
                                     {
-                                        
+
                                         //sr1.Close();
                                         File.Delete(Program.cardnum + "limit.txt");
                                         StreamWriter updatetime = new StreamWriter(Program.cardnum + "limit.txt", true);
@@ -228,19 +223,19 @@ namespace HammadProj
                                         updatetime.Close();
                                         f.Withdraw();
                                         break;
-                                        
+
 
                                     }
                                     else
                                     {
                                         Console.WriteLine("\t\tTransaction Limit Reached");
-                                        
+
                                     }
                                 }
                                 else
                                 {
-                                    
-                                    
+
+
                                     File.Delete(Program.cardnum + "limit.txt");
                                     StreamWriter updatetime = new StreamWriter(Program.cardnum + "limit.txt", true);
                                     updatetime.WriteLine("1," + today);
@@ -251,8 +246,8 @@ namespace HammadProj
 
                                 break;
                             case 2:
-                                
-                                
+
+
                                 DateTime dateTimee = DateTime.Now;
                                 string todays = dateTimee.ToString("MM/dd/yy");
 
@@ -310,46 +305,43 @@ namespace HammadProj
                                 //sr1.Close();
                                 Console.WriteLine("Mini Statement");
                                 f.MiniStatement();
-
-
-
                                 break;
 
                             case 6:
                                 f.ChngPin();
                                 Console.ReadKey();
                                 break;
+                                
                             case 7:
                                 f.LogOut();
 
                                 Front();
                                 Console.ReadKey();
                                 break;
-
                         }
                     }
-                    else 
-                    { 
-                        Console.WriteLine("\t\tPlease Choose The Options Given Above"); 
+                    else
+                    {
+                        Console.WriteLine("\t\tPlease Choose The Options Given Above");
                     }
 
-                    if (opt == 7) 
-                    { 
-                        break; 
+                    if (opt == 7)
+                    {
+                        break;
                     }
-                    
+
 
                 }
-                catch (Exception) 
+                catch (Exception)
                 {
                     string a = "Please Use Numbers Only";
                     ExceptionCatcher(a);
-         
+
                 }
                 Console.Write("\t\t" + "Press <any> key to continue:");
                 Console.ReadKey();
 
-            } while (true) ;
+            } while (true);
 
         }
 

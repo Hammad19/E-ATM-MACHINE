@@ -384,18 +384,24 @@ namespace HammadProj
                     string newpin = Console.ReadLine();
                     sw.WriteLine(valuesx[0] + "," + valuesx[1] + "," + newpin + "," + valuesx[3] + "," + valuesx[4]);
                     Console.WriteLine("\t\tPin Has Been Changed Successfully");
-                    Program.Footer();
+                    Console.WriteLine("\t\tPlease Log In Again");   
+                    Program.Footer();  
                     
+                    Console.ReadKey();
+                            
                 }
                 else
                 {
                     sw.WriteLine(line1);
                 }
             }
+            
             sw.Close();
             sr2.Close();
             File.Delete("Users.txt");
             File.Move("UserTemp.txt", "Users.txt");
+            Program.Front();
+            
         }
 
         

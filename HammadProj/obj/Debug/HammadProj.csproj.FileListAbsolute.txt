@@ -18,3 +18,9 @@ E:\HammadProj\HammadProj\obj\Debug\HammadProj.csprojAssemblyReference.cache
 E:\HammadProj\HammadProj\obj\Debug\HammadProj.csproj.CoreCompileInputs.cache
 E:\HammadProj\HammadProj\obj\Debug\HammadProj.exe
 E:\HammadProj\HammadProj\obj\Debug\HammadProj.pdb
+C:\Users\HP\Desktop\E-ATM-MACHINE-master\HammadProj\bin\Debug\HammadProj.exe.config
+C:\Users\HP\Desktop\E-ATM-MACHINE-master\HammadProj\obj\Debug\HammadProj.exe
+C:\Users\HP\Desktop\E-ATM-MACHINE-master\HammadProj\obj\Debug\HammadProj.pdb
+C:\Users\HP\Desktop\E-ATM-MACHINE-master\HammadProj\bin\Debug\HammadProj.exe
+C:\Users\HP\Desktop\E-ATM-MACHINE-master\HammadProj\bin\Debug\HammadProj.pdb
+C:\Users\HP\Desktop\E-ATM-MACHINE-master\HammadProj\obj\Debug\HammadProj.csprojResolveAssemblyReference.cache
